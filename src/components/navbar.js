@@ -16,16 +16,6 @@ const Navbar = () => {
     <div className="header">
       <div className="container nav-container">
         <Link className="text-decoration-none" to='/'><div className="brand-name">My Store</div></Link>
-        <nav>
-          <ul>
-            <Link className="text-decoration-none" to="/">
-              <li>Home</li>
-            </Link>
-            <Link className="text-decoration-none" to="products">
-              <li>Products</li>
-            </Link>
-          </ul>
-        </nav>
         <div className="cart-icon">
           <button onClick={()=>navigate('/cart')} className="cart-btnn">
             <svg

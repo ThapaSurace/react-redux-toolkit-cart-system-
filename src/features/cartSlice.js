@@ -21,6 +21,9 @@ const cartSlice = createSlice({
             state.items.push(temp)
            }
            localStorage.setItem('cartItems',JSON.stringify(state.items))
+           toast.success('Item is added to cart', {
+            position: "bottom-left",
+          });
         },
         deleteCartItem: (state,action) =>{
             const newItems = state.items.filter((item)=> item.id !== action.payload.id)
@@ -39,11 +42,17 @@ const cartSlice = createSlice({
                 state.items[itemIndex].quantity -= 1
             }
             localStorage.setItem('cartItems',JSON.stringify(state.items))
+            toast.error('Item quantity decrease from cart', {
+                position: "bottom-left",
+              });
         },
         clearCart:(state)=>{
            const nextItem = state.items=([])
            state.items = nextItem
            localStorage.setItem('cartItems',JSON.stringify(state.items))
+           toast.error('All item are removed from cart', {
+            position: "bottom-left",
+          });
         },
         getTotals:(state,action)=>{
             //destructuring cartTotal values {total,quantity}
